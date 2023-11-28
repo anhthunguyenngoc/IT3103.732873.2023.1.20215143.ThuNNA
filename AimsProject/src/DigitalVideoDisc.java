@@ -70,19 +70,31 @@ public class DigitalVideoDisc {
 
   @Override
   public boolean equals(Object obj) {
-	if (this == obj)
-		return true;
-	if (obj == null)
-		return false;
-	if (getClass() != obj.getClass())
-		return false;
-	DigitalVideoDisc other = (DigitalVideoDisc) obj;
-	return Objects.equals(category, other.category) && Float.floatToIntBits(cost) == Float.floatToIntBits(other.cost)
-			&& Objects.equals(director, other.director) && length == other.length && Objects.equals(title, other.title);
+	if (obj instanceof DigitalVideoDisc) {
+	  DigitalVideoDisc other = (DigitalVideoDisc) obj;
+	  if(!this.title.equals(other.title)) return false;
+	  if(!this.category.equals(other.category)) return false;
+	  if(!this.director.equals(other.director)) return false;
+	  if(this.cost != other.cost) return false;
+	  if(this.length != other.length) return false;
+	  if(this.id != other.id) return false;
+	  return true;
+	}
+	return false;
   }
   
   //Trả về thông tin của dvd 
   public String toString() {
     return ". DVD - "+this.title+" - "+this.category+" - "+this.director+" - "+this.length+": "+this.cost+"$";
+  }
+  
+  //Kiểm tra dvd có tiêu đề có chứa chuỗi đang tìm không
+  public boolean isMatch(String title) {
+	return this.title.contains(title);
+  }
+  
+  //Kiểm tra dvd có id giống với id đang tìm không
+  public boolean isMatch(int id) {
+	return this.id == id;
   }
 }

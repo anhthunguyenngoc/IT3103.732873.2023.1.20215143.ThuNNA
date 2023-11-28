@@ -76,4 +76,29 @@ public class Cart {
 	System.out.println("Total cost: "+totalCost()+"$");
 	System.out.println("************************************************************************");
   }
+  
+  //Tìm kiếm theo tiêu đề
+  public void searchByTitle(String title) {
+	if(title.equals(null)) { System.out.println("No match is found"); return; }
+	int count=0;
+	for(int i=qtyOrdered-1; i>=0; i--) {
+	  if(itemsOrdered[i].isMatch(title)) {
+		count++;  
+		System.out.println((count)+itemsOrdered[i].toString()); 
+	  }
+	}
+	if(count==0) System.out.println("No match is found");
+  }
+  
+  //Tìm kiếm theo id
+  public void searchById(int id) {
+	int count=0;
+	for(int i=qtyOrdered-1; i>=0; i--) {
+	  if(itemsOrdered[i].isMatch(id)) {
+		count++; 
+		System.out.println((count)+itemsOrdered[i].toString()); 
+	  }
+	}
+	if(count==0) System.out.println("No match is found");
+  }
 }
