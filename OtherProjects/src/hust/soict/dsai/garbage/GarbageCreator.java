@@ -14,7 +14,6 @@ public class GarbageCreator {
 	try {
 		inputBytes = Files.readAllBytes(Paths.get(filename));
 	} catch (IOException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 	startTime = System.currentTimeMillis();
