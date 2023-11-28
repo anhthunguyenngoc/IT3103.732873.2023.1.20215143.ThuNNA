@@ -1,4 +1,5 @@
 //Nguyễn Ngọc Anh Thư - 20215143
+
 public class CartTest {
 
   public static void main(String[] args) {
@@ -18,5 +19,16 @@ public class CartTest {
 	
 	//----------HIỆN GIỎ HÀNG
 	cart.viewCart();
+	
+	//----------TÌM KIẾM DVD
+	System.out.println("Search Results:");
+	//Tìm kiếm theo id
+	cart.searchById(1);						
+	//cart.searchById(10);						//không có dvd có id=10
+	
+	//Tìm kiếm theo tiêu đề
+	cart.searchByTitle("The Lion King");		//tìm kiếm theo tiêu đề cụ thể
+	//cart.searchByTitle("The");				//tìm kiếm theo từ khóa
+	//cart.searchByTitle("Shingeki no Kyojin"); //dvd không có trong giỏ hàng    
 	}
 }
