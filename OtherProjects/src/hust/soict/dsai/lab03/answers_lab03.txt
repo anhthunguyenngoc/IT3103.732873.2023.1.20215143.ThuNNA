@@ -1,0 +1,6 @@
+- Question: Is JAVA a Pass by Value or a Pass by Reference programming language?
+Ans: Java là ngôn ngữ lập trình Pass by Value. Khi một phương thức được gọi, các giá trị của đối số sẽ được sao chép và truyền vào phương thức đó. Giá trị ban đầu của các đối số không bị ảnh hưởng bởi phương thức.
+- After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain?
+Ans: Bởi vì Java là ngôn ngữ lập trình Pass by Value, khi phương thức swap được gọi sẽ tạo ra bản copy của phương thức được truyền vào (jungleDVD, cinderellaDVD) là object o1 và o2. Sau khi phương thức swap kết thúc, chỉ làm thay đổi tham chiếu của o1 và o2 chứ không làm thay đổi jungleDVD và cinderellaDVD
+- After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
+Ans: Bởi vì sau khi gọi phương thức changeTitle bản copy được tạo là dvd đã gọi phương thức setTitle và thay đổi title của jungleDVD nên sau khi phương thức changeTitle kết thúc, title của jungleDVD cũng được cập nhật.

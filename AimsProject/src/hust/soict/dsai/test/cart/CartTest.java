@@ -1,4 +1,7 @@
 //Nguyễn Ngọc Anh Thư - 20215143
+package hust.soict.dsai.test.cart;
+import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class CartTest {
 
@@ -23,11 +26,11 @@ public class CartTest {
 	//----------TÌM KIẾM DVD
 	System.out.println("Search Results:");
 	//Tìm kiếm theo id
-	cart.searchById(1);						
+	//cart.searchById(1);						
 	//cart.searchById(10);						//không có dvd có id=10
 	
 	//Tìm kiếm theo tiêu đề
-	cart.searchByTitle("The Lion King");		//tìm kiếm theo tiêu đề cụ thể
+	//cart.searchByTitle("The Lion King");		//tìm kiếm theo tiêu đề cụ thể
 	//cart.searchByTitle("The");				//tìm kiếm theo từ khóa
 	//cart.searchByTitle("Shingeki no Kyojin"); //dvd không có trong giỏ hàng    
 	}

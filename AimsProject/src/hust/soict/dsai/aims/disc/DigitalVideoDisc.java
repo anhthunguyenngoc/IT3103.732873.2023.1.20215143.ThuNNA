@@ -1,5 +1,6 @@
-//Nguyễn Ngọc Anh Thư - 20215143
+package hust.soict.dsai.aims.disc;
 import java.util.Objects;
+//Nguyễn Ngọc Anh Thư - 20215143
 public class DigitalVideoDisc {
   private String title;
   private String category;
@@ -8,7 +9,7 @@ public class DigitalVideoDisc {
   private float cost;
   private static int nbDigitalVideoDiscs=1;
   private int id=nbDigitalVideoDiscs;
-
+  
 //Tạo các constructor
   public DigitalVideoDisc(String title) {
 	super(); 
@@ -41,7 +42,7 @@ public class DigitalVideoDisc {
 	this.cost = cost;
 	nbDigitalVideoDiscs++;
   }
- 
+
 //Nguyễn Ngọc Anh Thư - 20215143
 //Tạo các phương thức getter
   public String getTitle() {
@@ -63,12 +64,12 @@ public class DigitalVideoDisc {
   public float getCost() {
 	return cost;
   }
- 
+  
   public void setTitle(String title) {
 	this.title = title;
   }
-
-  @Override
+//Nguyễn Ngọc Anh Thư - 20215143  
+  @Override //override equals
   public boolean equals(Object obj) {
 	if (obj instanceof DigitalVideoDisc) {
 	  DigitalVideoDisc other = (DigitalVideoDisc) obj;
@@ -82,6 +83,8 @@ public class DigitalVideoDisc {
 	}
 	return false;
   }
+  
+//=======================================LAB 03=======================================// 
   
   //Trả về thông tin của dvd 
   public String toString() {
