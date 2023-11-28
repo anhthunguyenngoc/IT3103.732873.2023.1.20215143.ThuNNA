@@ -44,16 +44,6 @@ public class Cart {
 	return sum;
   }
   
-  //Hiện giỏ hàng
-  public void viewCart() {
-	System.out.println("======================================Your current cast=====================================");
-	for(int i=0; i<qtyOrdered; i++) {
-	  System.out.println((i+1)+". "+itemsOrdered[i].getTitle()+", "+itemsOrdered[i].getCategory()+", "+itemsOrdered[i].getCost()); 
-	}
-	System.out.println("The total cost is: "+totalCost());
-	System.out.println("============================================================================================");
-  }
-  
 //Thêm danh sách các dvd vào giỏ hàng 
   public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
 	int n = dvdList.length;
@@ -74,5 +64,16 @@ public class Cart {
   public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
 	addDigitalVideoDisc(dvd1);
 	addDigitalVideoDisc(dvd2);
+  }
+  
+//Hiện giỏ hàng
+  public void viewCart() {
+	System.out.println("**********************************CART**********************************");
+	System.out.println("Ordered Items:");
+	for(int i=0; i<qtyOrdered; i++) {
+	  System.out.println((i+1)+itemsOrdered[i].toString()); 
+	}
+	System.out.println("Total cost: "+totalCost()+"$");
+	System.out.println("************************************************************************");
   }
 }

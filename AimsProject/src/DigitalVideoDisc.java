@@ -80,4 +80,9 @@ public class DigitalVideoDisc {
 	return Objects.equals(category, other.category) && Float.floatToIntBits(cost) == Float.floatToIntBits(other.cost)
 			&& Objects.equals(director, other.director) && length == other.length && Objects.equals(title, other.title);
   }
+  
+  //Trả về thông tin của dvd 
+  public String toString() {
+    return ". DVD - "+this.title+" - "+this.category+" - "+this.director+" - "+this.length+": "+this.cost+"$";
+  }
 }
