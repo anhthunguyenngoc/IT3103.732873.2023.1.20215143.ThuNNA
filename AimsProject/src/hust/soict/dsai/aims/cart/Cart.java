@@ -1,10 +1,13 @@
 //Nguyễn Ngọc Anh Thư - 20215143
+package hust.soict.dsai.aims.cart;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class Cart {
   private static final int MAX_NUMBERS_ORDERED = 20;									//Số lượng DVD max trong giỏ hàng
   private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];	//Mảng chứa các DVD
   private int qtyOrdered;																//Số lượng DVD trong giỏ hàng
   
+//=======================================LAB 02=======================================//    
   //Thêm DVD vào giỏ hàng
   public void addDigitalVideoDisc(DigitalVideoDisc disc) {
 	if(disc==null) return;
@@ -43,8 +46,10 @@ public class Cart {
 	}
 	return sum;
   }
-  
-//Thêm danh sách các dvd vào giỏ hàng 
+
+//=======================================LAB 03=======================================//  
+
+  //Thêm danh sách các dvd vào giỏ hàng 
   public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
 	int n = dvdList.length;
 	for(int i=0; i<n; i++) { 
@@ -65,18 +70,7 @@ public class Cart {
 	addDigitalVideoDisc(dvd1);
 	addDigitalVideoDisc(dvd2);
   }
-  
-//Hiện giỏ hàng
-  public void viewCart() {
-	System.out.println("**********************************CART**********************************");
-	System.out.println("Ordered Items:");
-	for(int i=0; i<qtyOrdered; i++) {
-	  System.out.println((i+1)+itemsOrdered[i].toString()); 
-	}
-	System.out.println("Total cost: "+totalCost()+"$");
-	System.out.println("************************************************************************");
-  }
-  
+//Nguyễn Ngọc Anh Thư - 20215143  
   //Tìm kiếm theo tiêu đề
   public void searchByTitle(String title) {
 	if(title.equals(null)) { System.out.println("No match is found"); return; }
@@ -100,5 +94,16 @@ public class Cart {
 	  }
 	}
 	if(count==0) System.out.println("No match is found");
+  }
+  
+  //Hiện giỏ hàng
+  public void viewCart() {
+	System.out.println("**********************************CART**********************************");
+	System.out.println("Ordered Items:");
+	for(int i=0; i<qtyOrdered; i++) {
+	  System.out.println((i+1)+itemsOrdered[i].toString()); 
+	}
+	System.out.println("Total cost: "+totalCost()+"$");
+	System.out.println("************************************************************************");
   }
 }
