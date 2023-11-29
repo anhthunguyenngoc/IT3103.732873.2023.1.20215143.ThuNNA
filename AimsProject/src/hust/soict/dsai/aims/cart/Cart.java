@@ -1,6 +1,6 @@
 //Nguyễn Ngọc Anh Thư - 20215143
 package hust.soict.dsai.aims.cart;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 public class Cart {
   private static final int MAX_NUMBERS_ORDERED = 20;									//Số lượng DVD max trong giỏ hàng
