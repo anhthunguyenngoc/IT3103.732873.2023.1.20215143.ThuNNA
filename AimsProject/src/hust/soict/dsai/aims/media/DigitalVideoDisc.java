@@ -1,14 +1,10 @@
-package hust.soict.dsai.aims.disc;
+package hust.soict.dsai.aims.media;
 import java.util.Objects;
 //Nguyễn Ngọc Anh Thư - 20215143
-public class DigitalVideoDisc {
-  private String title;
-  private String category;
+public class DigitalVideoDisc extends Media {
   private String director;
   private int length;
-  private float cost;
   private static int nbDigitalVideoDiscs=1;
-  private int id=nbDigitalVideoDiscs;
   
 //Tạo các constructor
   public DigitalVideoDisc(String title) {

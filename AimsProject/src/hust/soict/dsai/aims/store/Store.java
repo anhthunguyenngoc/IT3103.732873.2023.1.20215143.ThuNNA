@@ -1,6 +1,6 @@
 //Nguyễn Ngọc Anh Thư - 20215143
 package hust.soict.dsai.aims.store;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 public class Store {
   private final static int MAX_NUMBERS_ITEMS = 1000;

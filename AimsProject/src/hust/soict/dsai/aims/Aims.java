@@ -1,6 +1,5 @@
 //Nguyễn Ngọc Anh Thư - 20215143
 package hust.soict.dsai.aims;
-
 import hust.soict.dsai.aims.media.Book;
 
 public class Aims {
