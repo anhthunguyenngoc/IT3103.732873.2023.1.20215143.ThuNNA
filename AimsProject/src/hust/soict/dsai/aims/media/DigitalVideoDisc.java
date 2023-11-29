@@ -1,7 +1,7 @@
 package hust.soict.dsai.aims.media;
 import java.util.Objects;
 //Nguyễn Ngọc Anh Thư - 20215143
-public class DigitalVideoDisc extends Media {
+public class DigitalVideoDisc extends Disc {
   private String director;
   private int length;
   private static int nbDigitalVideoDiscs=1;
