@@ -19,6 +19,10 @@ public class CompactDisc extends Disc implements Playable {
 	return artist;
   }
   
+  public String getTitle() {
+	return title;
+  }
+  
   public int getLength() {
 	int sum=0;
 	for(Track c : tracks) {
@@ -39,5 +43,18 @@ public class CompactDisc extends Disc implements Playable {
 	  tracks.remove(trk);
 	  System.out.println("The track has been removed.");
 	} else System.out.println("The track isn't on the list.");
+  }
+  
+  public void play() {
+	if(getLength()<=0) {
+	  System.out.println("The CD cannot be played");
+	  return;
+	}
+	System.out.println("Playing CD: " + this.getTitle());
+	System.out.println("CD length: " + this.getLength());
+	System.out.println("Playing list of tracks: " + this.getTitle());
+	for(Track c : tracks) {
+	  c.play();
+	}
   }
 }
