@@ -8,7 +8,7 @@ public class Track implements Playable{
 	super();
   }
 
-public Track(String title, int length) {
+  public Track(String title, int length) {
 	super();
 	this.title = title;
 	this.length = length;

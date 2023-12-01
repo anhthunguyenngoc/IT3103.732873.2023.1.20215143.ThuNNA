@@ -4,13 +4,16 @@ import java.util.List;
 
 public class Book extends Media {
   private List<String> author = new ArrayList<String>();
-  
-  public Book(int id) {
-	super();
-	this.id = id;
-}
 
-public void addAuthor(String au) {
+  public Book() {
+	super();
+  }
+
+  public Book(int id, String title, String category, float cost) {
+	super(id, title, category, cost);
+  }
+
+  public void addAuthor(String au) {
 	if(!author.contains(au)) {
 	  author.add(au);
 	  System.out.println("The author has been added.");
