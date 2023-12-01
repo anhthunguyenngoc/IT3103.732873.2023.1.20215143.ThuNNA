@@ -1,7 +1,7 @@
 package hust.soict.dsai.aims.media;
 import java.util.Objects;
 //Nguyễn Ngọc Anh Thư - 20215143
-public class DigitalVideoDisc extends Disc {
+public class DigitalVideoDisc extends Disc implements Playable{
   private String director;
   private int length;
   private static int nbDigitalVideoDiscs=1;
@@ -95,5 +95,15 @@ public class DigitalVideoDisc extends Disc {
   //Kiểm tra dvd có id giống với id đang tìm không
   public boolean isMatch(int id) {
 	return this.id == id;
+  }
+  
+//=======================================LAB 04=======================================// 
+  public void play() {
+	if(getLength()<=0) {
+	  System.out.println("The DVD cannot be played");
+	  return;
+	}
+	System.out.println("Playing DVD: " + this.getTitle());
+	System.out.println("DVD length: " + this.getLength());
   }
 }
