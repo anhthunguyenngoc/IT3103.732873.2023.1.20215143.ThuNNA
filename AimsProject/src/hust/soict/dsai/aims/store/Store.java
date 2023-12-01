@@ -8,7 +8,7 @@ public class Store {
   private ArrayList<Media> itemsInStore = new ArrayList<Media>();
   
   //Thêm 1 DVD vào cửa hàng
-  public void addDVD(Media media) {
+  public void addMedia(Media media) {
     if(media==null) return;
     if(itemsInStore.size()==MAX_NUMBERS_ITEMS) System.out.println("The store is almost full");//Nếu số lượng DVD trong cửa hàng = max sẽ thông báo đầy
     else {
@@ -18,7 +18,7 @@ public class Store {
   }
   
   //Xóa 1 DVD khỏi cửa hàng
-  public void removeDVD(Media media) { 
+  public void removeMedia(Media media) { 
 	if(itemsInStore.contains(media)) {
 	  itemsInStore.remove(media);
 	  System.out.println("The disc has been deleted");	//Thông báo xóa đĩa thành công
