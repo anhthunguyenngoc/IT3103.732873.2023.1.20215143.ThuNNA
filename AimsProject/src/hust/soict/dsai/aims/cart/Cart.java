@@ -12,8 +12,12 @@ public class Cart {
 	if(media==null) return;
 	if(itemsOrdered.size()==MAX_NUMBERS_ORDERED) System.out.println("The cart is almost full");  //Nếu số lượng DVD trong giỏ hàng = max sẽ thông báo đầy
 	else {
+	  if(itemsOrdered.contains(media)) {
+		System.out.println("The media is already on the cart");
+		return;
+	  }
 	  itemsOrdered.add(media);
-	  System.out.println("The disc has been added");									//Thông báo thêm vào giỏ hàng thành công
+	  System.out.println("The media has been added");									//Thông báo thêm vào giỏ hàng thành công
     }
   }
   
@@ -21,9 +25,9 @@ public class Cart {
   public void removeMedia(Media media) {
 	if(itemsOrdered.contains(media)) {
 	  itemsOrdered.remove(media);
-	  System.out.println("The disc has been removed");
+	  System.out.println("The media has been removed");
 	}
-	else System.out.println("Not found");		
+	else System.out.println("The media is not found");		
   }
 
   //Tính tổng
