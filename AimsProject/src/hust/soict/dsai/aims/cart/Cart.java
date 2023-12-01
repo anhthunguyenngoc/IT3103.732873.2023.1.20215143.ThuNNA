@@ -1,7 +1,6 @@
 //Nguyễn Ngọc Anh Thư - 20215143
 package hust.soict.dsai.aims.cart;
 import java.util.ArrayList;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
 
 public class Cart {
