@@ -6,6 +6,7 @@ import hust.soict.dsai.aims.media.DigitalVideoDisc;
 public class CartTest {
 
   public static void main(String[] args) {
+	/*
 	Cart cart = new Cart();									//Tạo giỏ hàng
 	DigitalVideoDisc dvdList[] = new DigitalVideoDisc[20];	//Tạo mảng danh sách các dvd
 	
@@ -33,5 +34,6 @@ public class CartTest {
 	//cart.searchByTitle("The Lion King");		//tìm kiếm theo tiêu đề cụ thể
 	//cart.searchByTitle("The");				//tìm kiếm theo từ khóa
 	//cart.searchByTitle("Shingeki no Kyojin"); //dvd không có trong giỏ hàng    
+	*/
 	}
 }

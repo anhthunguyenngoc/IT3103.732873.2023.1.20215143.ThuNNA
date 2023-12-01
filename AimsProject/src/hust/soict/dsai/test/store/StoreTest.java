@@ -6,6 +6,7 @@ import hust.soict.dsai.aims.store.Store;
 public class StoreTest {
 
   public static void main(String[] args) {
+	/*
     Store store = new Store();
 	
     //Tạo và thêm DVD vào cửa hàng
@@ -17,5 +18,6 @@ public class StoreTest {
 	
 	//Xóa DVD khỏi cửa hàng
     store.removeDVD(dvd1);
+    */
   }
 }

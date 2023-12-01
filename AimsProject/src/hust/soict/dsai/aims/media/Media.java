@@ -1,20 +1,23 @@
 package hust.soict.dsai.aims.media;
 
 public abstract class Media {
-  protected int id;
   protected String title;
   protected String category;
   protected float cost;
+  private static int nbDigitalVideoDiscs=1;
+  protected int id=nbDigitalVideoDiscs;
   
   public Media() {
+	super();
+	nbDigitalVideoDiscs++; 
   }
 
-  public Media(int id, String title, String category, float cost) {
+  public Media(String title, String category, float cost) {
 	super();
-	this.id = id;
 	this.title = title;
 	this.category = category;
 	this.cost = cost;
+	nbDigitalVideoDiscs++; 
   }
 
   public int getId() {

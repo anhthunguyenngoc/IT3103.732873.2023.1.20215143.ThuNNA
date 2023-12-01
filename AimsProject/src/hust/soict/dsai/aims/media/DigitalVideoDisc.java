@@ -2,69 +2,15 @@ package hust.soict.dsai.aims.media;
 import java.util.Objects;
 //Nguyễn Ngọc Anh Thư - 20215143
 public class DigitalVideoDisc extends Disc implements Playable{
-  private String director;
-  private int length;
-  private static int nbDigitalVideoDiscs=1;
-  
 //Tạo các constructor
-  public DigitalVideoDisc(String title) {
+  public DigitalVideoDisc() {
 	super(); 
-	this.title = title;
-	nbDigitalVideoDiscs++; 
   }
   
-  public DigitalVideoDisc(String title, String category, float cost) {
-	super();
-	this.title = title;
-    this.category = category;
-    this.cost = cost;
-    nbDigitalVideoDiscs++;
+  public DigitalVideoDisc(String title, String category, float cost, String director, int length) {
+	super(title, category, cost, director, length);
   }
 
-  public DigitalVideoDisc(String title, String category, String director, float cost) {
-	super();
-	this.title = title;
-	this.category = category;
-	this.director = director;
-	this.cost = cost;
-	nbDigitalVideoDiscs++;
-  }
-  
-  public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-	this.title = title;
-	this.category = category;
-	this.director = director;
-	this.length = length;
-	this.cost = cost;
-	nbDigitalVideoDiscs++;
-  }
-
-//Nguyễn Ngọc Anh Thư - 20215143
-//Tạo các phương thức getter
-  public String getTitle() {
-	return title;
-  }
-
-  public String getCategory() {
-	return category;
-  }
-
-  public String getDirector() {
-	return director;
-  }
-
-  public int getLength() {
-	return length;
-  }
-
-  public float getCost() {
-	return cost;
-  }
-  
-  public void setTitle(String title) {
-	this.title = title;
-  }
-//Nguyễn Ngọc Anh Thư - 20215143  
   @Override //override equals
   public boolean equals(Object obj) {
 	if (obj instanceof DigitalVideoDisc) {
@@ -79,8 +25,6 @@ public class DigitalVideoDisc extends Disc implements Playable{
 	}
 	return false;
   }
-  
-//=======================================LAB 03=======================================// 
   
   //Trả về thông tin của dvd 
   public String toString() {
@@ -97,7 +41,6 @@ public class DigitalVideoDisc extends Disc implements Playable{
 	return this.id == id;
   }
   
-//=======================================LAB 04=======================================// 
   public void play() {
 	if(getLength()<=0) {
 	  System.out.println("The DVD cannot be played");
