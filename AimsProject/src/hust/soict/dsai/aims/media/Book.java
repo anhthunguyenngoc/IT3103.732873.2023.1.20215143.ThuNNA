@@ -26,4 +26,16 @@ public class Book extends Media {
 	  System.out.println("The author has been removed.");
 	}else System.out.println("The author isn't on the list.");
   }
+  
+  public String toString() {
+	String str = this.id+". Book - "+this.title+" - "+this.category+" - "+"Authors: ";
+	if(author.size()>0) {
+	  str += author.get(0);
+	  for(int i=1; i<author.size(); i++) {
+	    str += ", "+author.get(i);
+	  }
+	}
+	str += ": " + this.cost+"$";
+	return str;
+  }
 }
