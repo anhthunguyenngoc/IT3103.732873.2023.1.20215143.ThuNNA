@@ -10,25 +10,10 @@ public class DigitalVideoDisc extends Disc implements Playable{
   public DigitalVideoDisc(String title, String category, float cost, String director, int length) {
 	super(title, category, cost, director, length);
   }
-
-  @Override //override equals
-  public boolean equals(Object obj) {
-	if (obj instanceof DigitalVideoDisc) {
-	  DigitalVideoDisc other = (DigitalVideoDisc) obj;
-	  if(!this.title.equals(other.title)) return false;
-	  if(!this.category.equals(other.category)) return false;
-	  if(!this.director.equals(other.director)) return false;
-	  if(this.cost != other.cost) return false;
-	  if(this.length != other.length) return false;
-	  if(this.id != other.id) return false;
-	  return true;
-	}
-	return false;
-  }
   
   //Trả về thông tin của dvd 
   public String toString() {
-    return ". DVD - "+this.title+" - "+this.category+" - "+this.director+" - "+this.length+": "+this.cost+"$";
+    return this.id+". DVD - "+this.title+" - "+this.category+" - "+this.director+" - "+this.length+": "+this.cost+"$";
   }
   
   //Kiểm tra dvd có tiêu đề có chứa chuỗi đang tìm không
