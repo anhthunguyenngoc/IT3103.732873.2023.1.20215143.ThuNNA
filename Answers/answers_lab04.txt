@@ -1,0 +1,12 @@
+- Question: Which classes are aggregates of other classes? Checking all constructors of whole classes if they initialize for their parts?
+Ans: Media là aggregate của Disc và Book, Disc là aggregate của CD và DVD. Có thể khởi tạo Book, Disc, CD, DVD dựa vào lớp cha của nó.
+
+Suppose we are taking this Comparable interface approach.
+- Question: What class should implement the Comparable interface?
+Ans: Có thể implement trong Media.java
+
+- Question: Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?
+Ans: Không thể, vì nếu implement trong lớp Media thì không thể overloading compareTo cho kiểu sort thứ 2 do trùng chữ kí
+
+- Question: Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?
+Ans: Implement Comparator trong lớp DigitalVideoDisc và overide compare
