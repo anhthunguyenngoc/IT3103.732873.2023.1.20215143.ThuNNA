@@ -29,7 +29,6 @@ public class SwingAccumulator extends JFrame{
   }
   
   private class TFInputListener implements ActionListener {
-	@Override
 	public void actionPerformed(ActionEvent evt) {
 	  int numberIn = Integer.parseInt(tfInput.getText());
 	  sum += numberIn;
