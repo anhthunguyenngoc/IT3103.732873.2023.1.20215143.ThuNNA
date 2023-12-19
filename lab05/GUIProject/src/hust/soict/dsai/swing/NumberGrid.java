@@ -44,7 +44,6 @@ public class NumberGrid extends JFrame {
   }
   
   private class ButtonListener implements ActionListener{
-	@Override
 	public void actionPerformed(ActionEvent e) {
 	  String button = e.getActionCommand();
 	  if(button.charAt(0)>='0' && button.charAt(0)<='9') {
