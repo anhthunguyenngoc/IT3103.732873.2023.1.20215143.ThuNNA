@@ -1,40 +1,43 @@
 //Nguyễn Ngọc Anh Thư - 20215143
 package hust.soict.dsai.aims.cart;
 import java.util.Collections;
+import javax.naming.LimitExceededException;
+import hust.soict.dsai.aims.exception.MediaException;
 import hust.soict.dsai.aims.media.Media;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.*;
 
 public class Cart {
   private static final int MAX_NUMBERS_ORDERED = 20;				//Số lượng DVD max trong giỏ hàng
   private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();	//Mảng chứa các DVD														
   
-  public Cart() {
-	super();
+  public Cart() { }
+  
+  //Thêm DVD vào giỏ hàng
+  public boolean addMedia(Media media) throws Exception{
+	//Nếu media's title rỗng hoặc chỉ chứa khoảng trắng
+	if(media.getTitle().isEmpty()) 				 throw new NullPointerException("ERROR: The media's title is NULL");
+	
+	//Nếu số lượng media trong cửa hàng đã đầy
+	if(itemsOrdered.size()==MAX_NUMBERS_ORDERED) throw new LimitExceededException("ERROR: The number of media has reached its limit");  
+	
+	//Nếu media đã có trog cửa hàng
+	if(itemsOrdered.contains(media)) 			 throw new MediaException("ERROR: The media has already on the cart");
+	
+	//Thêm media vào giỏ hàng và return true
+	itemsOrdered.add(media);					
+	return true;
   }
-//Thêm DVD vào giỏ hàng
-  public int addMedia(Media media) {
-		if(media==null) {
-		  return -1;
-		}//Nếu số lượng DVD trong giỏ hàng = max sẽ thông báo đầy
-		if(itemsOrdered.size()==MAX_NUMBERS_ORDERED) return -2;  
-		else {
-		  if(itemsOrdered.contains(media)) {							//Ktra media đã được thêm vào hay chưa
-			return -3;
-		  }
-		  itemsOrdered.add(media);						//In ra số lượng media trong giỏ hàng
-		  return 0;
-		}
-	  }
+  
   //Xóa 1 DVD khỏi giỏ hàng 
-  public void removeMedia(Media media) {
-	if(itemsOrdered.contains(media)) {					//Nếu trong mảng chứa media
-	  itemsOrdered.remove(media);						//Xóa khỏi giỏ hàng
-	  System.out.println("The media has been removed");
+  public boolean removeMedia(Media media) throws MediaException {
+	if(itemsOrdered.contains(media)) {	//Nếu trong mảng chứa media
+	  itemsOrdered.remove(media);		//Xóa khỏi giỏ hàng
+	  return true;
 	}
-	else System.out.println("The media is not found");		
+	throw new MediaException("ERROR: The media hasn't on the cart");  //nếu không tìm thấy
   }
-  //Tính tổng
+  
+  //Tính tổng 
   public float totalCost() {
 	float sum = 0;
 	for(int i=0; i<itemsOrdered.size(); i++) {
@@ -42,97 +45,25 @@ public class Cart {
 	}
 	return sum;
   }
-//====Option 1: Filter Cart (ById & ByTitle)=================================
-  public static void filterCartMenu() {
-	System.out.println("Options: ");
-	System.out.println("--------------------------------");
-	System.out.println("1. Filter by id");
-	System.out.println("2. Filter by title");
-	System.out.println("0. Cancel");
-	System.out.println("--------------------------------");
-	System.out.println("Please choose a number: 0-1-2");
-  }
-  public ObservableList<Media> filterById(int id) {
-	ObservableList<Media> filteredList = FXCollections.observableArrayList();
-	for(int i=0; i<itemsOrdered.size(); i++) {
-	  if(itemsOrdered.get(i).getId()==id) {
-		filteredList.add(itemsOrdered.get(i));
-	  }	
-	}
-	return filteredList;
-  }
   
-  public ObservableList<Media> filterByTitle(String title) {
-	ObservableList<Media> filteredList = FXCollections.observableArrayList();
-	for(int i=0; i<itemsOrdered.size(); i++) {
-	  if(itemsOrdered.get(i).getTitle().contains(title)) {
-		filteredList.add(itemsOrdered.get(i));
-	  }	
-	}
-	return filteredList;
-  }
- 
-//====Option 2: Sort Cart (ByTitle & ByCost)=================================
-  public static void sortCartMenu() {
-	System.out.println("Options: ");
-	System.out.println("--------------------------------");
-	System.out.println("1. Sort by title");
-	System.out.println("2. Sort by cost");
-	System.out.println("0. Cancel");
-	System.out.println("--------------------------------");
-	System.out.println("Please choose a number: 0-1-2");
-  }
-  
-  public void sortCart(int num) {
-	if(num==1) sortByTitle();
-	else if(num==2) sortByCost();
-  }
-  
+  //Sort by title
   public void sortByTitle() {
 	Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
   }
   
+  //Sort by cost
   public void sortByCost() {
 	Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
   }
-
-  public Media mediaInCart(String title) {
-	for (Media media : itemsOrdered) {
-	  if(media.getTitle().equals(title)) return media;
-	}
-	return null;
-  }
   
+  //Clear giỏ hàng sau khi place order
   public void emptyCart() {
 	itemsOrdered.clear();
   }
-//Nguyễn Ngọc Anh Thư - 20215143   
-  //Hiện giỏ hàng
-  public void viewCart() {
-	System.out.println("**********************************CART**********************************");
-	System.out.println("Ordered Items:");
-	for(int i=0; i<itemsOrdered.size(); i++) {
-	  System.out.println(itemsOrdered.get(i).toString()); 
-	}
-	if(itemsOrdered.size()==0) System.out.println("The cart is empty");
-	System.out.println("Total cost: "+totalCost()+"$");
-	System.out.println("************************************************************************");
-  }
-  
-  public static void cartMenu() {
-	System.out.println("Options: ");
-	System.out.println("--------------------------------");
-	System.out.println("1. Filter medias in cart");
-	System.out.println("2. Sort medias in cart");
-	System.out.println("3. Remove media from cart");
-	System.out.println("4. Play a media");
-	System.out.println("5. Place order");
-	System.out.println("0. Back");
-	System.out.println("--------------------------------");
-	System.out.println("Please choose a number: 0-1-2-3-4-5");
-  }
-  
+ 
+  //Trả về danh sách các media trong giỏ hàng
   public ObservableList<Media> getItemsOrdered(){
 	return itemsOrdered;
   }
+
 }

@@ -23,6 +23,7 @@ public abstract class Media{
 	this.cost = cost;
 	nbDigitalVideoDiscs++; 
   }
+  
 //Nguyễn Ngọc Anh Thư - 20215143
   //Getter
   public int getId() {
@@ -40,6 +41,7 @@ public abstract class Media{
   public float getCost() {
 	return cost;
   }
+  
   //Override equals, nếu tiêu đề giống nhau tức là 2 Media đấy bằng nhau
   public boolean equals(Object obj) {
 	if(obj instanceof Media) {
@@ -48,6 +50,7 @@ public abstract class Media{
 	}
 	return false;
   }
+  
   //Tạo phương thức abstract yêu cầu các lớp con phải override
   public abstract String toString();
 }

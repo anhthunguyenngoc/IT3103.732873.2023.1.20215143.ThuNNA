@@ -1,10 +1,9 @@
 package hust.soict.dsai.aims.media;
-//Nguyễn Ngọc Anh Thư - 20215143
-
 import java.util.Comparator;
+import hust.soict.dsai.aims.exception.PlayerException;
 
-public class DigitalVideoDisc extends Disc implements Playable, Comparator<DigitalVideoDisc>{
-//Tạo các constructor
+public class DigitalVideoDisc extends Disc implements Playable{
+  //Tạo các constructor
   public DigitalVideoDisc() {
 	super(); 
   }
@@ -17,24 +16,13 @@ public class DigitalVideoDisc extends Disc implements Playable, Comparator<Digit
     return this.id+". DVD - "+this.title+" - "+this.category+" - "+this.director+" - "+this.length+": "+this.cost+"$";
   }
   
-  //Play dvd
-  public String play() {
-	if(getLength()<=0) {
-	  return "The DVD cannot be played";
+  //Play dvd										//Nguyễn Ngọc Anh Thư - 20215143
+  public String play() throws PlayerException {
+	if(getLength()<=0) {	//Ktra nếu length <=0 thì throw exception
+	  throw new PlayerException("ERROR: DVD's length is non-positive!");
 	}
 	String str = "<html>Playing DVD: " + this.getTitle();
 	str += "<br/>DVD length: " + this.getLength()+"</html>";
 	return str;
-  }
-  public int compare(DigitalVideoDisc o1, DigitalVideoDisc o2) {
-	if(o1.title.equals(o2.title)) {				//Nếu tiêu đề giống nhau thì so sánh length
-	  if(o1.length == o2.length) {				//Nếu tiêu đề giống nhau thì so sánh cost
-		if(o1.cost == o2.cost) return 0;
-		else if(o1.cost > o2.cost) return 1;
-		else return -1;
-	  }			
-	  else if(o1.length > o2.length) return 1;
-	  else return -1;
-	} else return o1.title.compareTo(o2.title); //Nếu tiêu đề khác thì trả vè kết quả của compareTo
   }
 }
