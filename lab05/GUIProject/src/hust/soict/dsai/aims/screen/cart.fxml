@@ -33,6 +33,7 @@
                                     <MenuItem mnemonicParsing="false" onAction="#addBookPressed" text="Add Book" />
                                     <MenuItem mnemonicParsing="false" onAction="#addCDPressed" text="Add CD" />
                                     <MenuItem mnemonicParsing="false" onAction="#addDVDPressed" text="Add DVD" />
+                                    <MenuItem mnemonicParsing="false" onAction="#removePressed" text="Remove Media" />
                                  </items>
                               </Menu>
                           <MenuItem mnemonicParsing="false" onAction="#viewStorePressed" text="View Store" />
@@ -41,7 +42,7 @@
                       </Menu>
                     </menus>
                   </MenuBar>
-                  <Label text="CART" textFill="#000080de">
+                  <Label text="CART - NNAT - 20215143" textFill="#000080de">
                      <font>
                         <Font size="50.0" />
                      </font>
@@ -74,6 +75,20 @@
                            </toggleGroup>
                         </RadioButton>
                         <RadioButton fx:id="radioBtnFilterTitle" mnemonicParsing="false" onMousePressed="#byFilterPressed" text="By Title" toggleGroup="$filterCategory" />
+                        <Label text="Sort">
+                           <HBox.margin>
+                              <Insets left="250.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton fx:id="radioBtbSortCost" mnemonicParsing="false" onMouseClicked="#radioBtbSortCostPressed" text="By Cost">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="sortCategory" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="radioBtbSortTitle" mnemonicParsing="false" onMouseClicked="#radioBtbSortTitlePressed" text="By Title" toggleGroup="$sortCategory" />
                      </children>
                   </HBox>
                   <TableView fx:id="tblMedia">

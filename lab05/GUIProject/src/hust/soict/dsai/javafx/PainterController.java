@@ -1,3 +1,4 @@
+//Nguyễn Ngọc Anh Thư - 20215143
 package hust.soict.dsai.javafx;
 
 import javafx.event.ActionEvent;
@@ -12,9 +13,9 @@ public class PainterController {
   private Pane drawingAreaPane;
   private Color color = Color.BLACK;
   private int size = 4;
-  @FXML
+  @FXML //Event khi chọn clear: xóa bảng vẽ
   void clearButtonPressed(ActionEvent event) {
-	drawingAreaPane.getChildren().clear();
+	drawingAreaPane.getChildren().clear(); 
   }
 
   @FXML
@@ -23,15 +24,15 @@ public class PainterController {
     drawingAreaPane.getChildren().add(newCircle);
   }
   
-  @FXML
+  @FXML	//Event khi chọn erase
   void eraseButtonPressed(ActionEvent event) {
-    color = Color.WHITE;
-    size = 10;
+    color = Color.WHITE; //Đổi màu bút thành màu trắng
+    size = 10;			 
   }
 
-  @FXML
+  @FXML //Event khi chọn pen
   void penButtonPressed(ActionEvent event) {
-	color = Color.BLACK;
+	color = Color.BLACK; //Đổi màu bút thành màu đen
 	size = 4;
   }
 }
